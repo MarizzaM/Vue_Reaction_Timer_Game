@@ -10,18 +10,14 @@ export default {
   data() {
     return {
       showBlock: false,
-      
       timer: null,
       reactionTime: 0
-
     }
   },
   mounted() {
     setTimeout(() => {
       this.showBlock = true
-
       this.startTimer()
-
     }, this.delay)
   },
   methods: {
@@ -34,7 +30,9 @@ export default {
     stopTimer() {
       // stop the timer
       clearInterval(this.timer)
-      console.log(this.reactionTime)
+      
+      this.$emit('end', this.reactionTime)
+      
     }
   }
 }
